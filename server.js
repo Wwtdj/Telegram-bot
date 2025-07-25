@@ -14,8 +14,14 @@ const chatId = 6833650326;
 const app = express();
 const upload = multer();
 const port = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// ✅ المسار اللي بيطمنك إن السيرفر شغال
+app.get('/', (req, res) => {
+  res.send('✅ السيرفر شغال تمام يا بودا!');
+});
 
 let wsConnection;
 
